@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+unidecode
+phonenumbers 
+rapidfuzz
+geopy
+tqdm
