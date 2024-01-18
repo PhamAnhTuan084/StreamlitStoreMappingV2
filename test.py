@@ -7701,7 +7701,7 @@ def main():
                     center_col.subheader("The store mapping process is done") 
                                            
                 elif rounds == [3, 1, 2, 4]:
-                    st.text("Current round is [3, 1, 2]")
+                    st.text("Current round is [3, 1, 2, 4]")
                     st.text("Current round is [3]")
                     
                     # Xử lý name
@@ -7881,7 +7881,7 @@ def main():
                     center_col.subheader("The store mapping process is done")
                     
                 elif rounds == [3, 1, 4, 2]:
-                    st.text("Current round is [3, 1, 4]")
+                    st.text("Current round is [3, 1, 4, 2]")
                     st.text("Current round is [3]")
                     HVN_without_NoName, HVN_with_NoName = xuly_hvnname(HVN, remove_name)
                     Vigo_without_NoName, Vigo_with_NoName = xuly_hvnname(Vigo, remove_name_2)
