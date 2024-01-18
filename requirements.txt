@@ -6,4 +6,5 @@ phonenumbers
 rapidfuzz
 geopy
 tqdm
+pillow
 openpyxl
