@@ -6684,9 +6684,9 @@ def main():
 
                         # Lọc data đã thảo round 2   
                         HVN_r5 = df1.loc[lambda df: ~df.OutletID.isin(matching_address.OutletID_file1)]
-                        HVN_r5 = pd.concat([HVN_r4, HVN_r2_khonghtoa])
+                        HVN_r5 = pd.concat([HVN_r5, HVN_r2_khonghtoa])
                         Vigo_r5 = df2.loc[lambda df: ~df.OutletID.isin(matching_address.OutletID_file2)]
-                        Vigo_r5 = pd.concat([Vigo_r4, vigo_r2_khongthoa])
+                        Vigo_r5 = pd.concat([Vigo_r5, vigo_r2_khongthoa])
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
