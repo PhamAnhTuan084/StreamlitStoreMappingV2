@@ -795,13 +795,13 @@ def Loc_2File(df):
     # Tính toán 'Score_Address'
     df['Score_Address'] = df.apply(calc_score_address, axis=1)
 
-    st.subheader("df lúc trước khi sort:")
+    st.subheader("Before sort:")
     st.dataframe(df)
 
     # Sắp xếp DataFrame theo 'Score_Address' giảm dần
     df = df.sort_values(by='Score_Address', ascending=False)
 
-    st.subheader("Sort theo score address:")
+    st.subheader("Sorted by address score:")
     st.dataframe(df)
     
     # Tạo DataFrame mới để lưu kết quả cuối cùng
