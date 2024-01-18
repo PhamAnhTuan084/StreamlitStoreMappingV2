@@ -630,6 +630,7 @@ def xuly_hvnname(HVN_r3, remove_name):
     HVN_r3['Outlet_Name'].fillna('NoName', inplace=True)
     HVN_r3['Outlet_Name'].replace({None: 'NoName'}, inplace=True)
     HVN_r3['Outlet_Name'].replace({'NULL': 'NoName'}, inplace=True)
+    HVN_r3['Outlet_Name'] = HVN_r3['Outlet_Name'].str.lower()
 
     # Tạo DataFrame chứa Outlet_Name là 'NoName'
     HVN_r3_with_NoName = HVN_r3[HVN_r3['Outlet_Name'] == 'noname']
@@ -985,7 +986,7 @@ def main():
                     if phonenum_map.empty:
                         HVN['store'] = 1
                         Vigo['store'] = 2
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
                         st.dataframe(danh_sach_chua_chay)
                     else:
@@ -997,7 +998,7 @@ def main():
                         Vigo_r2 = Vigo.loc[lambda df: ~df.OutletID.isin(phonenum_map.OutletID_file2)] 
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2                      
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])  
                         st.dataframe(danh_sach_chua_chay)
                         
@@ -1019,7 +1020,7 @@ def main():
 
                     if matching_address.empty:
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; Summary:</h3>', unsafe_allow_html=True)
@@ -1029,7 +1030,7 @@ def main():
                         Vigo_r2 = Vigo.loc[lambda df: ~df.OutletID.isin(matching_address.OutletID_file2)]
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2                          
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])  
                         st.dataframe(danh_sach_chua_chay)
                         
@@ -1056,7 +1057,7 @@ def main():
                     if location90storename100.empty:   
                         HVN['store'] = 1
                         Vigo['store'] = 2                          
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])  
                         st.dataframe(danh_sach_chua_chay) 
                     else:   
@@ -1068,7 +1069,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1120,7 +1121,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_1.empty:
@@ -1133,7 +1134,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_2.empty:
                         danh_sach_1['level'] = 4.1
@@ -1145,7 +1146,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_chua_chay)                                                             
                     else:                        
                         danh_sach_1['level'] = 4.1
@@ -1160,7 +1161,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2                        
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1206,7 +1207,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                     
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -1218,7 +1219,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -1230,7 +1231,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)                       
                     else:
                         phonenum_map['level'] = 1
@@ -1244,7 +1245,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)    
                                   
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1294,7 +1295,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                         
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -1306,7 +1307,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -1316,7 +1317,7 @@ def main():
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2                      
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     else:
                         phonenum_map['level'] = 1
@@ -1330,7 +1331,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)     
                                       
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1404,7 +1405,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif danh_sach_1.empty and danh_sach_2.empty:
                         phonenum_map['level'] = 1
@@ -1416,7 +1417,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif danh_sach_1.empty:
                         phonenum_map['level'] = 1
@@ -1433,7 +1434,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                            
                     elif danh_sach_2.empty:
                         phonenum_map['level'] = 1
@@ -1450,7 +1451,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                
                     else:
                         phonenum_map['level'] = 1
@@ -1469,7 +1470,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)   
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1519,7 +1520,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -1531,7 +1532,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)  
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -1543,7 +1544,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)      
                     else:         
                         matching_address['level'] = 2    
@@ -1559,7 +1560,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1608,7 +1609,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -1620,7 +1621,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -1632,7 +1633,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:                       
                         matching_address['level'] = 2
@@ -1649,7 +1650,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1718,7 +1719,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif danh_sach_1.empty and danh_sach_2.empty:
                         matching_address['level'] = 2
@@ -1730,7 +1731,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty:
                         matching_address['level'] = 2
@@ -1747,7 +1748,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                            
                     elif danh_sach_2.empty:
                         matching_address['level'] = 2
@@ -1764,7 +1765,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         matching_address['level'] = 2
@@ -1783,7 +1784,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1832,7 +1833,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -1844,7 +1845,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -1856,7 +1857,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else: 
                         location90storename100['level'] = 3
@@ -1873,7 +1874,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                                   
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -1919,7 +1920,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                      
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -1931,7 +1932,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -1943,7 +1944,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)     
                     else:
                         location90storename100['level'] = 3
@@ -1961,7 +1962,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2033,7 +2034,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     
                     elif danh_sach_1.empty:
@@ -2051,7 +2052,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -2069,7 +2070,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -2089,7 +2090,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)     
                                  
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2173,7 +2174,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)    
                     elif danh_sach_1.empty and danh_sach_2.empty:
                         phonenum_map['level'] = 1
@@ -2185,7 +2186,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty and phonenum_map.empty:
                         danh_sach_2['level'] = 4.2
@@ -2197,7 +2198,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                     
                     elif danh_sach_2.empty and phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -2209,7 +2210,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -2221,7 +2222,7 @@ def main():
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                              
                     else:   
                         danh_sach_1['level'] = 4.1
@@ -2239,7 +2240,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2319,7 +2320,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty and danh_sach_2.empty:
                         matching_address['level'] = 2
@@ -2331,7 +2332,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty and matching_address.empty:
                         danh_sach_2['level'] = 4.2
@@ -2343,7 +2344,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                   
                     elif danh_sach_2.empty and matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -2355,7 +2356,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -2367,7 +2368,7 @@ def main():
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:   
                         danh_sach_1['level'] = 4.1
@@ -2385,7 +2386,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2460,7 +2461,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty and danh_sach_2.empty:
                         location90storename100['level'] = 3
@@ -2472,7 +2473,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty and location90storename100.empty:
                         danh_sach_2['level'] = 4.2
@@ -2484,7 +2485,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                       
                     elif danh_sach_2.empty and location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -2496,7 +2497,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -2510,7 +2511,7 @@ def main():
                         HVN_r2['store'] = 1
                         Vigo_r2['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r2, Vigo_r2])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                             
                     else:   
                         danh_sach_1['level'] = 4.1
@@ -2528,7 +2529,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2598,7 +2599,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -2612,7 +2613,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                        
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -2626,7 +2627,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -2640,7 +2641,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:      
                         phonenum_map['level'] = 1                 
@@ -2657,7 +2658,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)      
                                      
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2752,7 +2753,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty:
                         phonenum_map['level'] = 1
@@ -2771,7 +2772,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                     
                     elif danh_sach_2.empty:
                         phonenum_map['level'] = 1
@@ -2790,7 +2791,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         phonenum_map['level'] = 1
@@ -2811,7 +2812,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2879,7 +2880,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                              
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -2893,7 +2894,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         phonenum_map['level'] = 1
@@ -2911,7 +2912,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -2999,7 +3000,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                  
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                  
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -3019,7 +3020,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -3039,7 +3040,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -3061,7 +3062,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3163,7 +3164,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -3177,7 +3178,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         phonenum_map['level'] = 1 
@@ -3197,7 +3198,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3294,7 +3295,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -3310,7 +3311,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                 
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                 
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         phonenum_map['level'] = 1   
@@ -3330,7 +3331,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)   
                                       
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3398,7 +3399,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -3410,7 +3411,7 @@ def main():
                         HVN_chuachay = HVN.loc[lambda df: ~df.OutletID.isin(ket_qua.OutletID_file1)]
                         Vigo_chuachay = Vigo.loc[lambda df: ~df.OutletID.isin(ket_qua.OutletID_file2)]  
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)               
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)               
                         st.dataframe(danh_sach_chua_chay)                 
                     else:
                         matching_address['level'] = 2
@@ -3426,7 +3427,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3518,7 +3519,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -3538,7 +3539,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -3558,7 +3559,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -3580,7 +3581,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3648,7 +3649,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] =1
@@ -3662,7 +3663,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else: 
                         matching_address['level'] = 2
@@ -3681,7 +3682,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3771,7 +3772,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                  
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                  
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -3791,7 +3792,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -3811,7 +3812,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -3833,7 +3834,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -3938,7 +3939,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -3952,7 +3953,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                          
                     else:  
                         matching_address['level'] = 2
@@ -3972,7 +3973,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4068,7 +4069,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -4084,7 +4085,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                 
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                 
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         matching_address['level'] = 2   
@@ -4104,7 +4105,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4172,7 +4173,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                    
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -4184,7 +4185,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)                     
                     else:
                         location90storename100['level'] = 3
@@ -4200,7 +4201,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4293,7 +4294,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -4313,7 +4314,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -4333,7 +4334,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -4355,7 +4356,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4423,7 +4424,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -4435,7 +4436,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)      
                     else:    
                         location90storename100['level'] = 3
@@ -4452,7 +4453,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)    
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4545,7 +4546,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty:
                         location90storename100['level'] = 3
@@ -4564,7 +4565,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                     
                     elif danh_sach_2.empty:
                         location90storename100['level'] = 3
@@ -4583,7 +4584,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         location90storename100['level'] = 3
@@ -4604,7 +4605,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4709,7 +4710,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -4723,7 +4724,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                          
                     else:  
                         location90storename100['level'] = 3
@@ -4743,7 +4744,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4844,7 +4845,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -4858,7 +4859,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         location90storename100['level'] = 3
@@ -4878,7 +4879,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -4981,7 +4982,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                    
                     elif matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -4995,7 +4996,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)                   
                     else:
                         danh_sach_1['level'] = 4.1
@@ -5015,7 +5016,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5120,7 +5121,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -5134,7 +5135,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                 
                     else:
                         danh_sach_1['level'] = 4.1
@@ -5154,7 +5155,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5256,7 +5257,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)  
                     elif phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -5270,7 +5271,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)       
                     else:    
                         danh_sach_1['level'] = 4.1
@@ -5290,7 +5291,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5391,7 +5392,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -5405,7 +5406,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:      
                         danh_sach_1['level'] = 4.1
@@ -5426,7 +5427,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5525,7 +5526,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -5539,7 +5540,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else: 
                         danh_sach_1['level'] = 4.1
@@ -5560,7 +5561,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5656,7 +5657,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                              
                     elif matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -5670,7 +5671,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         danh_sach_1['level'] = 4.1
@@ -5692,7 +5693,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5804,7 +5805,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                  
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                  
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -5826,7 +5827,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -5848,7 +5849,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -5872,7 +5873,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -5990,7 +5991,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -6008,7 +6009,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                 
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                 
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         matching_address['level'] = 2   
@@ -6028,7 +6029,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6143,7 +6144,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty:
                         phonenum_map['level'] = 1
@@ -6164,7 +6165,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                     
                     elif danh_sach_2.empty:
                         phonenum_map['level'] = 1
@@ -6185,7 +6186,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         phonenum_map['level'] = 1
@@ -6208,7 +6209,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6330,7 +6331,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -6346,7 +6347,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         phonenum_map['level'] = 1
@@ -6368,7 +6369,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6493,7 +6494,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         phonenum_map['level'] = 1
@@ -6509,7 +6510,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         phonenum_map['level'] = 1      
@@ -6532,7 +6533,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6650,7 +6651,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)               
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)               
                         st.dataframe(danh_sach_chua_chay)                                              
                     elif matching_address.empty:
                         phonenum_map['level'] = 1
@@ -6666,7 +6667,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         phonenum_map['level'] = 1
@@ -6690,7 +6691,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6798,7 +6799,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                  
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                  
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -6820,7 +6821,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -6842,7 +6843,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     else:
@@ -6866,7 +6867,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -6983,7 +6984,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -7001,7 +7002,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                 
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                 
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         matching_address['level'] = 2
@@ -7023,7 +7024,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)   
                                       
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7138,7 +7139,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -7160,7 +7161,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -7182,7 +7183,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -7206,7 +7207,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7331,7 +7332,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -7347,7 +7348,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                          
                     else:  
                         matching_address['level'] = 2
@@ -7369,7 +7370,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7495,7 +7496,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         matching_address['level'] = 2
@@ -7511,7 +7512,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                 
                     else:
                         matching_address['level'] = 2
@@ -7533,7 +7534,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7653,7 +7654,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         matching_address['level'] = 2
@@ -7668,7 +7669,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else: 
                         matching_address['level'] = 2
@@ -7691,7 +7692,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7806,7 +7807,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif danh_sach_1.empty:
                         location90storename100['level'] = 3
@@ -7827,7 +7828,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                     
                     elif danh_sach_2.empty:
                         location90storename100['level'] = 3
@@ -7848,7 +7849,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         location90storename100['level'] = 3
@@ -7871,7 +7872,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -7992,7 +7993,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -8008,7 +8009,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
                         location90storename100['level'] = 3
@@ -8030,7 +8031,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8143,7 +8144,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     
                     elif danh_sach_1.empty:
@@ -8165,7 +8166,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     elif danh_sach_2.empty:
@@ -8187,7 +8188,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                       
                     else:
@@ -8211,7 +8212,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8336,7 +8337,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -8352,7 +8353,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                          
                     else:  
                         location90storename100['level'] = 3
@@ -8374,7 +8375,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8497,7 +8498,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                    
                     elif matching_address.empty:
                         location90storename100['level'] = 3
@@ -8513,7 +8514,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)                   
                     else:
                         location90storename100['level'] = 3
@@ -8535,7 +8536,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8658,7 +8659,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)  
                     elif phonenum_map.empty:
                         location90storename100['level'] = 3
@@ -8674,7 +8675,7 @@ def main():
                         HVN_r3['store'] = 1
                         Vigo_r3['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)       
                     else:    
                         location90storename100['level'] = 3
@@ -8696,7 +8697,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8820,7 +8821,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -8838,7 +8839,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         danh_sach_1['level'] = 4.1
@@ -8861,7 +8862,7 @@ def main():
                         HVN_chuachay['store'] = 1
                         Vigo_chuachay['store'] = 2
                         danh_sach_chua_chay = pd.concat([HVN_chuachay, Vigo_chuachay])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -8983,7 +8984,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                                              
                     elif matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -8999,7 +9000,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else:
                         danh_sach_1['level'] = 4.1
@@ -9023,7 +9024,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -9146,7 +9147,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif location90storename100.empty:
                         danh_sach_1['level'] = 4.1
@@ -9162,7 +9163,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)             
                     else:
                         matching_address['level'] = 2
@@ -9180,7 +9181,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -9304,7 +9305,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     elif phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -9320,7 +9321,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                     else: 
                         danh_sach_1['level'] = 4.1
@@ -9343,7 +9344,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -9461,7 +9462,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)                    
                     elif matching_address.empty:
                         danh_sach_1['level'] = 4.1
@@ -9477,7 +9478,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])                     
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
                         st.dataframe(danh_sach_chua_chay)                     
                     else:
                         danh_sach_1['level'] = 4.1
@@ -9499,7 +9500,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
@@ -9617,7 +9618,7 @@ def main():
                         HVN['store'] = 1
                         Vigo['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN, Vigo])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay) 
                     elif phonenum_map.empty:
                         danh_sach_1['level'] = 4.1
@@ -9633,7 +9634,7 @@ def main():
                         HVN_r4['store'] = 1
                         Vigo_r4['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)      
                     else:    
                         danh_sach_1['level'] = 4.1
@@ -9655,7 +9656,7 @@ def main():
                         HVN_r5['store'] = 1
                         Vigo_r5['store'] = 2 
                         danh_sach_chua_chay = pd.concat([HVN_r5, Vigo_r5])
-                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets for 4 rounds:</h3>', unsafe_allow_html=True)                   
+                        st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                   
                         st.dataframe(danh_sach_chua_chay)
                         
                     left_col, center_col, right_col = st.columns([1, 3, 1])
