@@ -6009,11 +6009,13 @@ def main():
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                 
                         st.dataframe(danh_sach_chua_chay)                                         
                     else:
+                        phonenum_map['level'] = 1
                         matching_address['level'] = 2   
                         danh_sach_1['level'] = 4.1
                         danh_sach_2['level'] = 4.2
                         location90storename100['level']= 3
-                        ket_qua = pd.concat([matching_address, danh_sach_1])
+                        ket_qua = pd.concat([phonenum_map, matching_address])
+                        ket_qua = pd.concat([ket_qua, danh_sach_1])
                         ket_qua = pd.concat([ket_qua, danh_sach_2])
                         ket_qua = pd.concat([ket_qua, location90storename100])
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; Summary:</h3>', unsafe_allow_html=True)
