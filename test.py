@@ -6014,7 +6014,7 @@ def main():
                         danh_sach_2['level'] = 4.2
                         location90storename100['level']= 3
                         ket_qua = pd.concat([matching_address, danh_sach_1])
-                        ket_qua = pd.concat([danh_sach_1, danh_sach_2])
+                        ket_qua = pd.concat([ket_qua, danh_sach_2])
                         ket_qua = pd.concat([ket_qua, location90storename100])
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; Summary:</h3>', unsafe_allow_html=True)
                         st.dataframe(ket_qua)                        
