@@ -451,7 +451,9 @@ def xuly_toadotrongaddress_vigo(Vigo_r2):
     not_contains_plus = Vigo_r2[~Vigo_r2['CustomerAddress'].str.contains('\\+')]
 
     contains_plus['plus_word'] = contains_plus['CustomerAddress'].str.extractall(r'(\S+\+\S+)').groupby(level=0).agg(','.join)[0]
-    contains_plus['CustomerAddress'] = contains_plus.apply(lambda row: row['CustomerAddress'].replace(row['plus_word'], ''), axis=1)
+
+    # Check for NaN values before applying the replacement
+    contains_plus['CustomerAddress'] = contains_plus.apply(lambda row: row['CustomerAddress'].replace(row['plus_word'], '') if pd.notna(row['plus_word']) else row['CustomerAddress'], axis=1)
 
     contains_plus = contains_plus.drop('plus_word', axis=1)    
 
