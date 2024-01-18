@@ -1511,10 +1511,7 @@ def main():
                     st.subheader("Displaying file 2 after checking phone:")
                     st.dataframe(Vigo_thoa)
                     st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 1:</h3>', unsafe_allow_html=True)
-                    st.dataframe(phonenum_map)  
-
-                    matching_address['level'] = 2
-                    phonenum_map['level'] = 1
+                    st.dataframe(phonenum_map)
                     
                     if matching_address.empty and phonenum_map.empty:
                         HVN['store'] = 1
