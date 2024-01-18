@@ -8511,11 +8511,11 @@ def main():
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; Summary:</h3>', unsafe_allow_html=True)
                         st.dataframe(ket_qua)
                         
-                        HVN_r3['store'] = 1
-                        Vigo_r3['store'] = 2 
-                        danh_sach_chua_chay = pd.concat([HVN_r3, Vigo_r3])                     
+                        HVN_r4['store'] = 1
+                        Vigo_r4['store'] = 2 
+                        danh_sach_chua_chay = pd.concat([HVN_r4, Vigo_r4])                     
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; List of unsatisfactory Outlets:</h3>', unsafe_allow_html=True)                
-                        st.dataframe(danh_sach_chua_chay)                   
+                        st.dataframe(danh_sach_chua_chay)                  
                     else:
                         location90storename100['level'] = 3
                         danh_sach_1['level'] = 4.1
