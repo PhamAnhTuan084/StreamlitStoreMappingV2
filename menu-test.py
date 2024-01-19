@@ -13195,7 +13195,7 @@ def main():
                         HVN_r4 = pd.concat([HVN_r4, HVN_with_NoName])
 
                     st.text("Current round is [2]")
-                    matching_address, df1, HVN_r2_khonghtoa = apply_round2_motfile(HVN_r3, OptionalText, text_remove, text_remove_2)
+                    matching_address, df1, HVN_r2_khonghtoa = apply_round2_motfile(HVN_r4, OptionalText, text_remove, text_remove_2)
                     st.subheader("Displaying file after creating address column:")
                     st.dataframe(df1)
                     st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 2:</h3>', unsafe_allow_html=True)
