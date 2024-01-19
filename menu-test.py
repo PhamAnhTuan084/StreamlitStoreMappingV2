@@ -4626,8 +4626,8 @@ def main():
                         HVN_r2 = HVN
                         Vigo_r2= Vigo 
                     else: 
-                        HVN_r2 = HVN.loc[lambda df: ~df.OutletID.isin(location90storename100.OutletID_file1)]
-                        Vigo_r2 = Vigo.loc[lambda df: ~df.OutletID.isin(location90storename100.OutletID_file2)]
+                        HVN_r2 = HVN_without_NoName.loc[lambda df: ~df.OutletID.isin(location90storename100.OutletID_file1)]
+                        Vigo_r2 = Vigo_without_NoName.loc[lambda df: ~df.OutletID.isin(location90storename100.OutletID_file2)]
                         HVN_r2 = pd.concat([HVN_r2, HVN_with_NoName])
                         Vigo_r2 = pd.concat([Vigo_r2, Vigo_with_NoName])
 
