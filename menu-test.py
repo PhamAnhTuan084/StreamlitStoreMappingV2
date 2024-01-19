@@ -2956,8 +2956,8 @@ def main():
                     st.text("Current round is [4]")                   
                     
                     # Xử lý name
-                    HVN_without_NoName, HVN_with_NoName = xuly_hvnname(HVN, remove_name)
-                    Vigo_without_NoName, Vigo_with_NoName = xuly_hvnname(Vigo, remove_name_2)
+                    HVN_without_NoName, HVN_with_NoName = xuly_hvnname(HVN_r3, remove_name)
+                    Vigo_without_NoName, Vigo_with_NoName = xuly_hvnname(Vigo_r3, remove_name_2)
                     df3 = xuly_address_hvn(OptionalText, HVN_without_NoName, text_remove)
                     df4 = xuly_address_Vigo(OptionalText, Vigo_without_NoName, text_remove_2)
                     df3 = tao_address(df3)
