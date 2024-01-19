@@ -4684,7 +4684,8 @@ def main():
                         location90storename100['level'] = 3
                         matching_address['level'] = 2    
                         phonenum_map['level'] = 1
-                        ket_qua = pd.concat([matching_address, phonenum_map])
+                        ket_qua = pd.concat([location90storename100, matching_address])
+                        ket_qua = pd.concat([ket_qua, phonenum_map])
                         st.markdown('<h3 style="display:flex; align-items:center;">&cir; Summary:</h3>', unsafe_allow_html=True)
                         st.dataframe(ket_qua)
 
