@@ -8351,8 +8351,8 @@ def main():
                         Vigo_r4 = pd.concat([Vigo_r4, Vigo_khongthoa])
 
                     st.text("Current round is [4]")                   
-                    HVN_r4, HVN_with_NoName = xuly_hvnname(HVN_r3, remove_name)
-                    Vigo_r4, Vigo_with_NoName = xuly_hvnname(Vigo_r3, remove_name_2)
+                    HVN_r4, HVN_with_NoName = xuly_hvnname(HVN_r4, remove_name)
+                    Vigo_r4, Vigo_with_NoName = xuly_hvnname(Vigo_r4, remove_name_2)
                     df3 = xuly_address_hvn(OptionalText, HVN_r4, text_remove)
                     df4 = xuly_address_Vigo(OptionalText, Vigo_r4, text_remove_2)
                     df3 = tao_address(df3)
