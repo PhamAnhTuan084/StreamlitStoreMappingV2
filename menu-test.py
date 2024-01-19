@@ -13088,13 +13088,13 @@ def main():
                     st.dataframe(matching_address) 
 
                     if matching_address.empty:
-                        HVN_r3 = HVN_r2
+                        HVN_r4 = HVN_r3
                     else:    
-                        HVN_r3 = df1.loc[lambda df: ~df.OutletID.isin(matching_address.OutletID_1)]
-                        HVN_r3 = pd.concat([HVN_r3, HVN_r2_khonghtoa])
+                        HVN_r4 = df1.loc[lambda df: ~df.OutletID.isin(matching_address.OutletID_1)]
+                        HVN_r4 = pd.concat([HVN_r4, HVN_r2_khonghtoa])
                         
                     st.text("Current round is [3]")
-                    HVN_without_NoName, HVN_with_NoName = xuly_hvnname_motfile(HVN_r3, remove_name)
+                    HVN_without_NoName, HVN_with_NoName = xuly_hvnname_motfile(HVN_r4, remove_name)
                     
                     st.subheader("Displaying file after cleaning name:")
                     st.dataframe(HVN_without_NoName)
