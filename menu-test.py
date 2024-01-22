@@ -321,10 +321,11 @@ def tao_danh_sach_thoa_khongthoa_motfile(teleco1, teleco2, HVN_phone_notna, HVN_
     return HVN_thoa, HVN_khongthoa
 
 def round1_motfile(df):
-    result = pd.merge(df, df, on=['Phone'],
-                      how='inner', suffixes=('_1', '_2'))
+    result_df = pd.merge(df, df, on=['Phone'], how='inner', suffixes=('_1', '_2'))
 
-    result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    # result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    result_df = result_df[(result_df['OutletID_1'] != result_df['OutletID_2']) & 
+                    (result_df['OutletID_1'] < result_df['OutletID_2'])]
     
     return result_df
 
@@ -653,7 +654,10 @@ def round2_motfile(data1):
     result = pd.merge(data1, data1, on=['ProvinceName', 'DistrictName', 'WardName'],
                       how='inner', suffixes=('_1', '_2'))
 
-    result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    # result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    result_df = result[(result['OutletID_1'] != result['OutletID_2']) & 
+                        (result['OutletID_1'] < result['OutletID_2'])]
+    
     result_df['fuzzy_similarity'] = result_df.apply(fuzzy_similarity_motfile, axis=1)
     
     matching_rows_fuzzy = result_df[result_df['fuzzy_similarity'] == 100]
@@ -788,7 +792,9 @@ def round3_motfile(HVN_r3):
     HVN_r3['WardName'] = HVN_r3['WardName'].str.lower()
     
     result = pd.merge(HVN_r3, HVN_r3, on=['ProvinceName', 'DistrictName', 'WardName'], how='inner', suffixes=('_1', '_2'))
-    result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    # result_df = result[result['OutletID_1'] != result['OutletID_2']]
+    result_df = result[(result['OutletID_1'] != result['OutletID_2']) & 
+                (result['OutletID_1'] < result['OutletID_2'])]
     
     result_df['Score_Distance'] = result_df.apply(calc_score_dist_motfile, axis=1)
     result_df['Score_Name'] = result_df.apply(calc_score_name_motfile, axis=1)
