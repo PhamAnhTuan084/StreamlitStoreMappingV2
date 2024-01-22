@@ -10016,11 +10016,11 @@ def main():
                     df3 = xuly_address_hvn(OptionalText, HVN_without_NoName, text_remove)
                     df3 = tao_address(df3)
 
-                    st.subheader("Displaying file 1 after crearting address:")
+                    st.subheader("Displaying file after crearting address:")
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying file after mapping:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -10028,7 +10028,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                         
                     if danh_sach_1.empty:                    
@@ -10172,11 +10172,11 @@ def main():
                     df3 = xuly_address_hvn(OptionalText, HVN_without_NoName, text_remove)
                     df3 = tao_address(df3)
 
-                    st.subheader("Displaying file 1 after crearting address:")
+                    st.subheader("Displaying file after crearting address:")
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying file after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -10184,7 +10184,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if phonenum_map.empty and danh_sach_1.empty:
@@ -10346,14 +10346,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filteringS:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if matching_address.empty and danh_sach_1.empty:
@@ -10516,14 +10516,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if location90storename100.empty and danh_sach_1.empty:
@@ -10566,7 +10566,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -10574,7 +10574,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -10629,7 +10629,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -10637,7 +10637,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -10692,7 +10692,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -10700,7 +10700,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -10851,14 +10851,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if phonenum_map.empty and matching_address.empty and danh_sach_1.empty :                    
@@ -11005,14 +11005,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if phonenum_map.empty and location90storename100.empty and danh_sach_1.empty :                  
@@ -11074,7 +11074,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -11082,7 +11082,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -11153,7 +11153,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -11161,7 +11161,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -11320,7 +11320,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -11328,7 +11328,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                                     
                     if matching_address.empty and phonenum_map.empty and danh_sach_1.empty :                  
@@ -11476,14 +11476,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if matching_address.empty and location90storename100.empty and danh_sach_1.empty :                  
@@ -11552,14 +11552,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -11634,14 +11634,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -11800,7 +11800,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -11808,7 +11808,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if location90storename100.empty and phonenum_map.empty and danh_sach_1.empty :                  
@@ -11955,14 +11955,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if location90storename100.empty and matching_address.empty and danh_sach_1.empty :                    
@@ -12025,14 +12025,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                     
                     if danh_sach_1.empty:
@@ -12107,14 +12107,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                     
                     if danh_sach_1.empty:
@@ -12172,7 +12172,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12180,7 +12180,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12251,7 +12251,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12259,7 +12259,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12335,7 +12335,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12343,7 +12343,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12414,7 +12414,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12422,7 +12422,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12497,7 +12497,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12505,7 +12505,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12578,7 +12578,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -12586,7 +12586,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12698,14 +12698,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if phonenum_map.empty and matching_address.empty and location90storename100.empty and danh_sach_1.empty :                  
@@ -12785,14 +12785,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -12900,14 +12900,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if phonenum_map.empty and location90storename100.empty and matching_address.empty and danh_sach_1.empty :                    
@@ -12987,14 +12987,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13069,7 +13069,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after mergingle:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -13077,7 +13077,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13169,7 +13169,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -13177,7 +13177,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13296,14 +13296,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if matching_address.empty and phonenum_map.empty and location90storename100.empty and danh_sach_1.empty :                  
@@ -13385,7 +13385,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -13393,7 +13393,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13500,7 +13500,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -13508,7 +13508,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if matching_address.empty and location90storename100.empty and phonenum_map.empty and danh_sach_1.empty :                  
@@ -13588,14 +13588,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13674,14 +13674,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13778,14 +13778,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -13905,14 +13905,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if location90storename100.empty and phonenum_map.empty and matching_address.empty and danh_sach_1.empty :                    
@@ -13994,7 +13994,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14002,7 +14002,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14108,7 +14108,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14116,7 +14116,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if location90storename100.empty and matching_address.empty and phonenum_map.empty and danh_sach_1.empty :                  
@@ -14199,14 +14199,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14285,14 +14285,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                     
                     if danh_sach_1.empty:
@@ -14384,14 +14384,14 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
                         danh_sach_1 = distance_df
                     else:
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 2:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
                     
                     if danh_sach_1.empty:
@@ -14467,7 +14467,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14475,7 +14475,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14567,7 +14567,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14575,7 +14575,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filterings:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14669,7 +14669,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14677,7 +14677,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14770,7 +14770,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14778,7 +14778,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14870,7 +14870,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14878,7 +14878,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
@@ -14967,7 +14967,7 @@ def main():
                     st.dataframe(df3)
                     
                     distance_df = round4_motfile(df3)
-                    st.subheader("Displaying file 1 merges file 2 in round 4 with the rule:")
+                    st.subheader("Displaying round 4 after merging:")
                     st.dataframe(distance_df)
 
                     if distance_df.empty:
@@ -14975,7 +14975,7 @@ def main():
                     else:
                         # print(distance_df.info())
                         danh_sach_1 = Loc_motfile(distance_df)
-                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering for file 1:</h3>', unsafe_allow_html=True)
+                        st.markdown('<h3 style="display:flex; align-items:center;">&hybull; Displaying round 4 after filtering:</h3>', unsafe_allow_html=True)
                         st.dataframe(danh_sach_1)
 
                     if danh_sach_1.empty:
