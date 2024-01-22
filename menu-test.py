@@ -1173,11 +1173,11 @@ def main():
 
         # Display information for HVN and Vigo
         if HVN is not None:
-            st.subheader("Displaying HVN:")
+            st.subheader("Displaying file 1:")
             st.dataframe(HVN)
 
         if Vigo is not None:
-            st.subheader("Displaying Vigo:")
+            st.subheader("Displaying file 2:")
             st.dataframe(Vigo)
 
     # Display Round table
